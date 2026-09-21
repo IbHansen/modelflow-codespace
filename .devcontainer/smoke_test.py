@@ -2,6 +2,7 @@
 import shutil
 import sys
 
+import dash_interactive_graphviz  # needed by .dash(); comes from the pip section
 import modelclass
 from modelclass import model
 

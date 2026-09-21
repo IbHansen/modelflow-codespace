@@ -22,12 +22,17 @@
     }
   },
 
-  "forwardPorts": [8888, 8050],
+  "forwardPorts": [8888, 5001, 8050],
   "portsAttributes": {
-    "8888": { "label": "JupyterLab" },
+    "8888": { "label": "Jupyter Notebook", "onAutoForward": "openBrowser" },
+    "5001": { "label": "ModelFlow .dash()" },
     "8050": { "label": "Dash" }
   },
 
   // Fails the creation log loudly if modelflow does not import
-  "postCreateCommand": "python .devcontainer/smoke_test.py"
+  "postCreateCommand": "python .devcontainer/smoke_test.py",
+
+  // Start Jupyter Notebook every time the codespace starts, without a token.
+  // The forwarded port is private (only reachable with your GitHub login) - never make port 8888 public.
+  "postStartCommand": "nohup jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --IdentityProvider.token='' > /tmp/jupyter.log 2>&1 &"
 }

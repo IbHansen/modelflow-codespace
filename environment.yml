@@ -9,3 +9,7 @@ dependencies:
   - ibh::modelflow
   - jupyterlab
   - ipykernel
+  - pip
+  - pip:
+      # used by the .dash() causality dashboard; only on PyPI, not conda-forge
+      - dash-interactive-graphviz
