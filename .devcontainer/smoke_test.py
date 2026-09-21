@@ -9,5 +9,5 @@ print('python     ', sys.version.split()[0])
 print('modelclass ', modelclass.__file__)
 print('graphviz   ', shutil.which('dot') or 'NOT FOUND')
 
-m = model('Y = C + I $ C = 0.8*Y $')
+m = model('FRML <> Y = C + I $ FRML <> C = 0.8*Y $')
 print('model built, endogenous:', sorted(m.endogene))
