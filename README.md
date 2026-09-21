@@ -15,11 +15,12 @@ whether Graphviz is available.
 
 ## Use
 
-- **Jupyter Notebook starts automatically** each time the codespace starts, and
+- **Jupyter Notebook starts automatically** each time VS Code connects to the
+  codespace (open it with **Open in browser**). It runs in its own terminal and
   opens in a new browser tab without asking for a token. If the tab does not
   appear (pop-up blocked), open the **Ports** tab and click the globe icon on
-  port 8888. The server log is in `/tmp/jupyter.log`. Keep the port
-  **private**: with no token, anyone with the link could run code if it were public.
+  port 8888. Keep the port **private**: with no token, anyone with the link
+  could run code if it were public.
 - **Notebooks in VS Code:** open or create an `.ipynb` file and pick the kernel
   `modelflow` (`/opt/conda/envs/modelflow/bin/python`).
 - **JupyterLab:** in a terminal run `jupyter lab --no-browser`; Codespaces

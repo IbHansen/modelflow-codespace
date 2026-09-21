@@ -23,7 +23,8 @@
     }
   },
 
-  "forwardPorts": [8888, 5001, 8050],
+  // 8888 is not listed: it is forwarded (and opened) when Jupyter starts listening, not before
+  "forwardPorts": [5001, 8050],
   "portsAttributes": {
     "8888": { "label": "Jupyter Notebook", "onAutoForward": "openBrowser" },
     "5001": { "label": "ModelFlow .dash()" },
@@ -33,8 +34,10 @@
   // Fails the creation log loudly if modelflow does not import
   "postCreateCommand": "python .devcontainer/smoke_test.py",
 
-  // Start Jupyter Notebook every time the codespace starts, without a token.
+  // Start Jupyter Notebook, without a token, in its own terminal each time VS Code connects.
+  // port_retries=0: a second connection does not start a second server on 8889.
   // The forwarded port is private (only reachable with your GitHub login) - never make port 8888 public.
-  // setsid: own session, so Jupyter is not killed when this command's process group is cleaned up
-  "postStartCommand": "setsid nohup jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --IdentityProvider.token='' > /tmp/jupyter.log 2>&1 < /dev/null &"
+  "postAttachCommand": {
+    "jupyter": "jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --ServerApp.port_retries=0 --IdentityProvider.token=''"
+  }
 }
