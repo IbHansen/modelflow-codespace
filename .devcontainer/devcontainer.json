@@ -35,9 +35,10 @@
   "postCreateCommand": "python .devcontainer/smoke_test.py",
 
   // Start Jupyter Notebook, without a token, in its own terminal each time VS Code connects.
+  // default_url: the start page is notebooks/start.ipynb instead of the file list (/tree).
   // port_retries=0: a second connection does not start a second server on 8889.
   // The forwarded port is private (only reachable with your GitHub login) - never make port 8888 public.
   "postAttachCommand": {
-    "jupyter": "jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --ServerApp.port_retries=0 --IdentityProvider.token=''"
+    "jupyter": "jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --JupyterNotebookApp.default_url=/notebooks/notebooks/start.ipynb --ServerApp.port_retries=0 --IdentityProvider.token=''"
   }
 }

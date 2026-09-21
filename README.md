@@ -17,7 +17,8 @@ whether Graphviz is available.
 
 - **Jupyter Notebook starts automatically** each time VS Code connects to the
   codespace (open it with **Open in browser**). It runs in its own terminal and
-  opens in a new browser tab without asking for a token. If the tab does not
+  opens `notebooks/start.ipynb` in a new browser tab without asking for a
+  token (the file list is at `/tree`, or **File → Open**). If the tab does not
   appear (pop-up blocked), open the **Ports** tab and click the globe icon on
   port 8888. Keep the port **private**: with no token, anyone with the link
   could run code if it were public.
@@ -35,6 +36,7 @@ whether Graphviz is available.
 
 | File | Purpose |
 |---|---|
+| `notebooks/start.ipynb` | Start notebook, opened when the codespace starts |
 | `environment.yml` | The conda environment: change packages or the Python version here |
 | `.devcontainer/Dockerfile` | Ubuntu + Miniforge, builds the environment |
 | `.devcontainer/devcontainer.json` | Codespaces/VS Code setup: extensions, ports, smoke test |
