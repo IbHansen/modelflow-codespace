@@ -19,6 +19,9 @@ whether Graphviz is available.
   `modelflow` (`/opt/conda/envs/modelflow/bin/python`).
 - **JupyterLab:** in a terminal run `jupyter lab --no-browser`; Codespaces
   forwards port 8888 and offers to open it in the browser.
+- **JupyterLab as the editor:** set *Editor preference → JupyterLab* at
+  <https://github.com/settings/codespaces>, or on <https://github.com/codespaces>
+  use **⋯ → Open in → JupyterLab** for an existing codespace.
 - **Terminal:** new terminals start with `modelflow` activated.
   `conda install -c conda-forge <pkg>` works without sudo.
 

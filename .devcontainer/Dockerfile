@@ -22,3 +22,8 @@ RUN conda env create -f /tmp/environment.yml \
 # `conda activate` works in terminals, and new terminals start in the modelflow env
 RUN conda init bash \
  && echo "conda activate modelflow" >> ~/.bashrc
+
+# "Open in JupyterLab" from Codespaces starts jupyter from the default system PATH
+USER root
+RUN ln -s /opt/conda/envs/modelflow/bin/jupyter* /usr/local/bin/
+USER vscode
