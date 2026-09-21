@@ -19,7 +19,8 @@
       }
     },
     "codespaces": {
-      "openFiles": ["README.md"]
+      // opened in VS Code the first time the codespace is opened; the first file is shown
+      "openFiles": ["notebooks/start.ipynb", "README.md"]
     }
   },
 
