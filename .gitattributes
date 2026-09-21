@@ -1,0 +1,3 @@
+# Files are edited on Windows but built on Linux: keep LF line endings in the repo
+* text=auto eol=lf
+*.ipynb text eol=lf

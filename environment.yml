@@ -1,0 +1,11 @@
+# Conda environment for the ModelFlow Codespace.
+# ibh::modelflow pulls modelflow from the 'ibh' channel only; all its
+# dependencies (numba, pandas, dash, graphviz, pandoc, ...) come from conda-forge.
+name: modelflow
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - ibh::modelflow
+  - jupyterlab
+  - ipykernel

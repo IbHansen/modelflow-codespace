@@ -1,0 +1,33 @@
+{
+  "name": "ModelFlow (Miniforge)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    // repo root, so the Dockerfile can COPY environment.yml
+    "context": ".."
+  },
+  "remoteUser": "vscode",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/conda/envs/modelflow/bin/python"
+      }
+    },
+    "codespaces": {
+      "openFiles": ["README.md"]
+    }
+  },
+
+  "forwardPorts": [8888, 8050],
+  "portsAttributes": {
+    "8888": { "label": "JupyterLab" },
+    "8050": { "label": "Dash" }
+  },
+
+  // Fails the creation log loudly if modelflow does not import
+  "postCreateCommand": "python .devcontainer/smoke_test.py"
+}
