@@ -14,7 +14,8 @@
         "ms-toolsai.jupyter"
       ],
       "settings": {
-        "python.defaultInterpreterPath": "/opt/conda/envs/modelflow/bin/python"
+        "python.defaultInterpreterPath": "/opt/conda/envs/modelflow/bin/python",
+        "python.condaPath": "/opt/conda/bin/conda"
       }
     },
     "codespaces": {
@@ -34,5 +35,6 @@
 
   // Start Jupyter Notebook every time the codespace starts, without a token.
   // The forwarded port is private (only reachable with your GitHub login) - never make port 8888 public.
-  "postStartCommand": "nohup jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --IdentityProvider.token='' > /tmp/jupyter.log 2>&1 &"
+  // setsid: own session, so Jupyter is not killed when this command's process group is cleaned up
+  "postStartCommand": "setsid nohup jupyter notebook --no-browser --ServerApp.root_dir=${containerWorkspaceFolder} --IdentityProvider.token='' > /tmp/jupyter.log 2>&1 < /dev/null &"
 }
